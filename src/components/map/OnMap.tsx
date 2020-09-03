@@ -24,7 +24,7 @@ const OnMap = () => {
         attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <Marker position={[position.lat, position.lng]}>
+      <Marker position={[position.lat, position.lng]} draggable={true}>
         <Popup>
           A pretty CSS3 popup. <br /> Easily customizable.
         </Popup>
