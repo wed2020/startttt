@@ -1,8 +1,6 @@
 import React, { Fragment, useEffect } from "react";
 import { List, Spin } from "antd";
 
-import { data } from "../../data/data";
-
 //Redux
 import { connect, ConnectedProps } from "react-redux";
 
@@ -19,26 +17,26 @@ interface GetData {
 
 type PropsFromRedux = ConnectedProps<typeof connector>;
 
-const SearchedList = ({ loading, search, getData }: PropsFromRedux) => {
+const SearchedList = ({ loading, data, search, getData }: PropsFromRedux) => {
   useEffect(() => {
     getData();
-  }, []);
-
-  let stations = data();
-  console.log("undefined22", stations, search, loading);
+  });
 
   return (
     <Fragment>
       {loading ? (
-        <Spin />
+        <Spin
+          style={{ display: "flex", justifyContent: "center", margin: "30px" }}
+        />
       ) : (
         <List
           size="small"
           bordered
-          dataSource={stations}
-          renderItem={(station) => (
+          dataSource={data}
+          renderItem={(response: any) => (
             <List.Item>
-              <i className="fas fa-subway"></i> {station.Haltestelle}
+              <i className="fas fa-subway" style={{ color: "#1890ff" }}></i>{" "}
+              {response.Haltestelle}
             </List.Item>
           )}
         />

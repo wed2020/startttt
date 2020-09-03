@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
+import React, { useState } from "react";
+import { Map, TileLayer, Marker, Popup } from "react-leaflet";
+import { OpenStreetMapProvider, GeoSearchControl } from "leaflet-geosearch";
 
 type State = {
   lat: number;
@@ -17,11 +18,11 @@ const OnMap = () => {
     <Map
       center={[position.lat, position.lng]}
       zoom={position.zoom}
-      style={{ height: '60vh' }}
+      style={{ height: "60vh" }}
     >
       <TileLayer
         attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       <Marker position={[position.lat, position.lng]}>
         <Popup>
